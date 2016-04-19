@@ -2,6 +2,18 @@
   "name": "source-map-cli",
   "version": "0.1.0",
   "description": "CLI for source-map tool",
+  "keywords": [
+    "cli",
+    "console",
+    "error",
+    "find",
+    "left-pad",
+    "locate",
+    "resolve",
+    "source",
+    "sourcemap",
+    "source map"
+  ],
   "license": "WTFPL",
   "author": "Gabriel Montes",
   "contributors": ["Mauro Titimoli"],
