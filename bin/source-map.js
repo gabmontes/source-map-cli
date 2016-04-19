@@ -6,7 +6,7 @@ const program = require('commander');
 const cli = require('../lib');
 
 program
-  .version('0.1.0');
+  .version(require('../package.json').version);
 
 program
   .command('resolve <path> <line> <column>')
