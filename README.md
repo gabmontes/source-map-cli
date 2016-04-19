@@ -10,7 +10,7 @@ npm install --global source-map-cli
 
 The tool accepts [`source-map`](https://github.com/mozilla/source-map) commands to operate with source maps.
 
-### `resolve <uri> <line> <column>`
+### `resolve [options] <uri> <line> <column>`
 
 The `resolve` command accepts a source map (either a path or a URL), a line and column and returns the original source file name, line and column, along with a context (usually the name of the variable or function).
 
@@ -21,6 +21,14 @@ Maps to source.js:2:10 (baz)
    return baz(bar);
           ^
 ```
+
+#### Context
+
+Additional lines of context can be shown by including the `--context [num]` option.
+
+#### Column marker
+
+It is possible to prevent the column marker to be shown with the `--no-marker` option.
 
 ## Disclaimer
 
