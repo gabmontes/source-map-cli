@@ -20,7 +20,7 @@
     "Mauro Titimoli"
   ],
   "bin": {
-    "source-map-dev": "bin/source-map.js"
+    "source-map": "bin/source-map.js"
   },
   "repository": "gabmontes/source-map-cli",
   "scripts": {},
