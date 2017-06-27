@@ -11,8 +11,10 @@ program
 program
   .command('resolve <path> <line> <column>')
   .description('Returns the original source\'s line and column')
-  .option('--context [num]', 'Add num lines of leading and trailing context')
-  .option('--no-marker', 'Does not include a column marker (^)')
+  .option('-c, --context [num]', 'Add num lines of leading and trailing context', parseInt)
+  .option('-b, --before [num]', 'Add num lines of leading context', parseInt)
+  .option('-a, --after [num]', 'Add num lines of trailing context', parseInt)
+  .option('-n, --no-marker', 'Does not include a column marker (^)')
   .action(cli.resolve);
 
 program
