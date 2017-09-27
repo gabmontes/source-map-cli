@@ -28,6 +28,6 @@
     "commander": "^2.9.0",
     "left-pad": "^1.0.2",
     "path-loader": "^1.0.1",
-    "source-map": "^0.5.3"
+    "source-map": "^0.6.0"
   }
 }
