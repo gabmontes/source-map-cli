@@ -29,7 +29,3 @@ Additional lines of context can be shown by including the `--context [num]` opti
 #### Column marker
 
 It is possible to prevent the column marker to be shown with the `--no-marker` option.
-
-## Disclaimer
-
-This module uses [`left-pad`](https://www.npmjs.com/package/left-pad). Use at your own risk.
