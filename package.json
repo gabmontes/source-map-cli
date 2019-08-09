@@ -25,7 +25,7 @@
   "repository": "gabmontes/source-map-cli",
   "scripts": {},
   "dependencies": {
-    "commander": "^2.9.0",
+    "commander": "^3.0.0",
     "left-pad": "^1.0.2",
     "path-loader": "^1.0.1",
     "source-map": "^0.5.3"
