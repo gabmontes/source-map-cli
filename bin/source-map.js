@@ -3,7 +3,7 @@
 'use strict';
 
 const program = require('commander');
-const cli = require('../lib');
+const cli = require('../src');
 
 program
   .version(require('../package.json').version);
@@ -15,7 +15,17 @@ program
   .option('-b, --before [num]', 'Add num lines of leading context', parseInt)
   .option('-a, --after [num]', 'Add num lines of trailing context', parseInt)
   .option('-n, --no-marker', 'Does not include a column marker (^)')
-  .action(cli.resolve);
+  .action(function (...args) {
+    cli.resolve(...args)
+      .then(function ({ pos, name, context }) {
+        console.log('Maps to %s:%s:%s %s', pos.source, pos.line, pos.column, name);
+        console.log('\n%s', context);
+      })
+      .catch(function (err) {
+        console.log('Could not resolve mapping: ', err.message);
+      })
+
+  });
 
 program
   .command('*', null, { noHelp: true })

@@ -25,17 +25,15 @@ function getSourceContentFor (smc, pos, options) {
 function resolve (path, line, column, options) {
   line = parseInt(line, 10);
   column = parseInt(column, 10);
-  loadUri(path)
+  return loadUri(path)
     .then(function (map) {
-      const smc = new sourceMap.SourceMapConsumer(map);
+      return new sourceMap.SourceMapConsumer(map);
+    })
+    .then(function (smc) {
       const pos = getOriginalPositionFor(smc, line, column);
       const name = pos.name ? '(' + pos.name + ')' : '';
-      console.log('Maps to %s:%s:%s %s', pos.source, pos.line, pos.column, name);
       const context = getSourceContentFor(smc, pos, options);
-      console.log('\n%s', context);
-    })
-    .catch(function (err) {
-      console.log('Could not resolve mapping: ', err.message);
+      return { pos, name, context }
     });
 }
 
