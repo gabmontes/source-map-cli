@@ -24,13 +24,21 @@
     "source-map": "bin/source-map.js"
   },
   "repository": "gabmontes/source-map-cli",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "commander": "^5.0.0",
     "path-loader": "^1.0.1",
     "source-map": "^0.7.3"
   },
+  "devDependencies": {
+    "@types/node": "^13.13.1",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
+  },
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "prettier": {}
 }
