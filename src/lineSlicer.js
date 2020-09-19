@@ -1,6 +1,7 @@
 "use strict";
 
 function slice(text, line, column, opts) {
+  if (text === null) return ''; // sourcemap.sourcesContent is empty
   const delimiter = opts.delimiter || "\n";
   const before = opts.before || opts.context || 0;
   const after = opts.after || opts.context || 0;
