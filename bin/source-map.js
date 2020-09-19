@@ -29,7 +29,7 @@ program
           pos.column,
           name ? "(" + name + ")" : ""
         );
-        console.log("\n%s", context);
+        if (context) console.log("\n%s", context);
       })
       .catch(function (err) {
         console.log("Could not resolve mapping: ", err.message);
