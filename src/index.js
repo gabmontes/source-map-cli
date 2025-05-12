@@ -2,7 +2,6 @@
 
 const loader = require("path-loader");
 const sourceMap = require("source-map");
-const lineSlicer = require("./lineSlicer");
 
 function loadUri(path) {
   return loader.load(path).then(JSON.parse);
@@ -17,9 +16,27 @@ function getOriginalPositionFor(smc, line, column) {
   return pos;
 }
 
+function sliceLine(text, line, column, opts) {
+  if (text === null) {
+    return "";
+  }
+
+  const delimiter = opts.delimiter || "\n";
+  const before = opts.before || opts.context || 0;
+  const after = opts.after || opts.context || 0;
+  const lines = text.split(delimiter);
+  const begin = Math.max(0, line - before - 1);
+  const end = Math.min(line + after - 1, lines.length - 1);
+  const slice = lines.slice(begin, end + 1);
+  if (opts.marker) {
+    slice.splice(line - begin, 0, "^".padStart(column + 1));
+  }
+  return slice.join(delimiter);
+}
+
 function getSourceContentFor(smc, pos, options) {
   const src = smc.sourceContentFor(pos.source);
-  return lineSlicer(src, pos.line, pos.column, options);
+  return sliceLine(src, pos.line, pos.column, options);
 }
 
 function resolve(path, line, column, options) {
