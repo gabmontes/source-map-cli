@@ -3,9 +3,11 @@
 "use strict";
 
 const program = require("commander");
-const cli = require("../src");
 
-program.version(require("../package.json").version);
+const cli = require("../src");
+const packageJson = require("../package.json");
+
+program.version(packageJson.version);
 
 program
   .command("resolve <path> <line> <column>")
@@ -36,7 +38,7 @@ program
       });
   });
 
-program.command("*", null, { noHelp: true }).action(function (cmd) {
+program.command("*", "", { noHelp: true }).action(function (cmd) {
   console.error("Unrecognized command: %s", cmd);
   program.help();
 });
