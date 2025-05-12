@@ -11,14 +11,16 @@
     "locate",
     "resolve",
     "source",
-    "sourcemap",
-    "source map"
+    "source map",
+    "sourcemap"
   ],
   "license": "WTFPL",
   "author": "Gabriel Montes",
   "contributors": [
     "Mauro Titimoli",
-    "Sawyer Hollenshead"
+    "Sarike",
+    "Sawyer Hollenshead",
+    "Milan Hauth"
   ],
   "bin": {
     "source-map": "bin/source-map.js"
@@ -33,12 +35,18 @@
     "source-map": "^0.7.3"
   },
   "devDependencies": {
-    "@types/node": "^13.13.1",
-    "chai": "^4.2.0",
-    "mocha": "^7.1.1"
+    "@types/node": "^22.15.17",
+    "chai": "^5.2.0",
+    "mocha": "^11.2.2"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8"
   },
-  "prettier": {}
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "22",
+      "onFail": "warn"
+    }
+  }
 }
